@@ -1,5 +1,15 @@
 class vagonas:
 
+    '''
+Vagonas turi ID, mase, max krovinio mase ir krovinio mase.
+
+Pridedant kroviny prie vagono tikrinama ar mase nevirsys maximalio vagono
+krovinio mases.
+
+Atemant kroviny is vagono tikrinama ar atemama mase nera didesne uz pati
+krovini, kad nebutu taip jog vagono mase taptu neigiama.
+    '''
+
     def __init__(self, vagono_ID, vagono_mase, max_krovinio_mase, z=0):
         self.vagono_ID = vagono_ID
         self.vagono_mase = vagono_mase

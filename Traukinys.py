@@ -1,8 +1,27 @@
-from Vagonas import vagonas
 from Lokomotyvas import lokomotyvas
 
 
 class traukinys:
+
+    '''
+Traukinys turi ID,
+lokomotyvo objekta kuris inicializuojamas sukurus traukiny,
+vagonu dictionary kuriame yra visi traukinio vagonai kaip objektai
+kur vagono ID yra raktas tame dictionary,
+traukinio mase kuri susideda is lokomotyvo mases, vagonu ir ju kroviniu mases.
+
+Pridejus arba atemus vagona prie/is vagonu listo taipat vagono svoris
+pridedamas arba atemamas prie/is traukinio mases.
+
+Reprezentacijos metodas kvieca string metoda ir prideda kabutes is abieju
+pusiu prie to metodo outputo.
+
+String metodas grazina traukinio svarbiausius parametrus kaip stringa.
+
+Bool metodas tikrina ar traukinys turi vagonu.
+
+Len metodas grazina traukinio vagonu skaiciu.
+    '''
 
     @property
     def traukinio_svoris(self):

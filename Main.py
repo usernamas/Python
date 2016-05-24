@@ -32,6 +32,9 @@ print(vagonas2)
 '''
 traukiniai = {}
 
+'''Metodas tikrina ar ivesta reiksme yra teigiamas skaicius, jei ne paprasoma
+ivesti dar karta'''
+
 
 def arTinka():
     x = -1
@@ -42,6 +45,8 @@ def arTinka():
             print("Wrong input")
             continue
     return x
+
+'''Metodas surusiuoja traukinius ir grazina juos kaip lista'''
 
 
 def sorting():
