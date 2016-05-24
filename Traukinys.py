@@ -1,3 +1,4 @@
+from Vagonas import vagonas
 from Lokomotyvas import lokomotyvas
 
 
