@@ -5,23 +5,23 @@ from Lokomotyvas import lokomotyvas
 class traukinys:
 
     '''
-Traukinys turi ID,
-lokomotyvo objekta kuris inicializuojamas sukurus traukiny,
-vagonu dictionary kuriame yra visi traukinio vagonai kaip objektai
-kur vagono ID yra raktas tame dictionary,
-traukinio mase kuri susideda is lokomotyvo mases, vagonu ir ju kroviniu mases.
+    Traukinys turi ID,
+    lokomotyvo objekta kuris inicializuojamas sukurus traukiny,
+    vagonu dictionary kuriame yra visi traukinio vagonai kaip objektai
+    kur vagono ID yra raktas tame dictionary,
+    traukinio mase kuri susideda is lokomotyvo mases, vagonu ir ju kroviniu mases.
 
-Pridejus arba atemus vagona prie/is vagonu listo taipat vagono svoris
-pridedamas arba atemamas prie/is traukinio mases.
+    Pridejus arba atemus vagona prie/is vagonu listo taipat vagono svoris
+    pridedamas arba atemamas prie/is traukinio mases.
 
-Reprezentacijos metodas kvieca string metoda ir prideda kabutes is abieju
-pusiu prie to metodo outputo.
+    Reprezentacijos metodas kvieca string metoda ir prideda kabutes is abieju
+    pusiu prie to metodo outputo.
 
-String metodas grazina traukinio svarbiausius parametrus kaip stringa.
+    String metodas grazina traukinio svarbiausius parametrus kaip stringa.
 
-Bool metodas tikrina ar traukinys turi vagonu.
+    Bool metodas tikrina ar traukinys turi vagonu.
 
-Len metodas grazina traukinio vagonu skaiciu.
+    Len metodas grazina traukinio vagonu skaiciu.
     '''
 
     @property
@@ -47,6 +47,8 @@ Len metodas grazina traukinio vagonu skaiciu.
         try:
             self.vagonai[other.vagono_ID] = other
             self.traukinio_mase += other.vagono_mase
+        except KeyError:
+            print("Vagonas nerastas")
         except:
             print("Error handled")
         return self
@@ -55,8 +57,10 @@ Len metodas grazina traukinio vagonu skaiciu.
         try:
             self.traukinio_mase -= (other.vagono_mase + other.krovinio_mase)
             del self.vagonai[other.vagono_ID]
-        except:
+        except KeyError:
             print("Vagonas nerastas")
+        except:
+            print("Error handled")
         return self
 
     def __repr__(self):

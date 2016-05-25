@@ -28,11 +28,19 @@ def arTinka():
 def sorting():
     sort = []
     sort2 = []
-    for k, v in traukiniai.items():
-        sort.append(k)
-    sort.sort()
-    for el in sort:
-        sort2.append(traukiniai[el])
+    try:
+        for k, v in traukiniai.items():
+            sort.append(k)
+        sort.sort()
+        for el in sort:
+            sort2.append(traukiniai[el])
+    except KeyError:
+        print("Error trying to sort unexistent trains")
+    except TypeError:
+        print("Unsortable data types")
+    except:
+        print("Error")
+
     return sort2
 
 
@@ -120,7 +128,6 @@ while(True):
         pivot = False
         for k, v in traukiniai[temp].vagonai.items():
             if(k == temp2):
-                print("Vagono ID uzimtas:")
                 pivot = True
 
         if(pivot is True):
@@ -199,14 +206,18 @@ while(True):
         print("Iveskite krovinio mase: ")
         print()
         mase = arTinka()
-        if(mase <= traukiniai[temp].vagonai[temp2].krovinio_mase):
-            traukiniai[temp].traukinio_mase -= mase
-            traukiniai[temp].vagonai[temp2] -= mase
-        else:
-            print("Krovinys per sunkus")
-            print()
-        print("Krovinio mase: ", traukiniai[temp].vagonai[temp2].krovinio_mase,
-              "| Traukinio mase: ", traukiniai[temp].traukinio_mase,)
+        try:
+            if(mase <= traukiniai[temp].vagonai[temp2].krovinio_mase):
+                    traukiniai[temp].traukinio_mase -= mase
+                    traukiniai[temp].vagonai[temp2] -= mase
+            else:
+                print("Krovinys per sunkus")
+                print()
+            print("Krovinio mase: ",
+                  traukiniai[temp].vagonai[temp2].krovinio_mase,
+                  "| Traukinio mase: ", traukiniai[temp].traukinio_mase,)
+        except(KeyError):
+            print("Toks vagonas neegzistuoja")
 
     elif(menu == "6"):
         print("Iveskite traukinio ID: ")
@@ -264,10 +275,13 @@ while(True):
             },
             'vagonai': vag
         }
-        s = json.dumps(train)
-        with open("C://Users//Inspiron//PycharmProjects//untitled5//" + name +
-                  ".json", "w") as f:
-            f.write(s)
+        try:
+            s = json.dumps(train)
+            with open("C://Users//Inspiron//PycharmProjects//untitled5//" +
+                      name + ".json", "w") as f:
+                f.write(s)
+        except(IOError):
+            print("Error writing to file")
 
     elif(menu == "9"):
         print("Pasirinkite: 1 - ivesti failo pavadinima,"
@@ -275,18 +289,35 @@ while(True):
         choice = arTinka()
         if(choice == 1):
             name = input("Iveskite failo pavadinima: ")
-            f = open("C://Users//Inspiron//PycharmProjects//untitled5//" +
-                     name + ".json", "r")
+            try:
+                f = open("C://Users//Inspiron//PycharmProjects//untitled5//" +
+                         name + ".json", "r")
+            except(IOError):
+                print("File not found")
+                print()
+                continue
         elif(choice == 2):
-            root = tk.Tk()
-            root.withdraw()
-            f = open(filedialog.askopenfilename(), "r")
+            try:
+                root = tk.Tk()
+                root.withdraw()
+                f = open(filedialog.askopenfilename(), "r")
+            except(IOError):
+                print("Error while reading the file")
+                print()
+                continue
         else:
             print("Skaiciu per didelis")
+            print()
             continue
-
-        s = f.read()
-        train = json.loads(s)
+        try:
+            s = f.read()
+            train = json.loads(s)
+        except(IOError):
+            print("Error while reading the file")
+            continue
+        except(TypeError):
+            print("Error wrong input")
+            continue
         for k, v in train.items():
             traukiniai[int(k)] = traukinys(v['traukinio_ID'],
                                            v['lok']['lokomotyvo_mase'],
