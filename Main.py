@@ -5,31 +5,7 @@ import json
 import tkinter as tk
 from tkinter import filedialog
 
-'''
-train = traukinys(1, 500, 1500)
 
-#print(train.vagonai, train.lok.lokomotyvo_mase, repr(train), train)
-vagonas2 = vagonas(2, 500, 1000)
-#print(train)
-vagonas2 + 950
-vagonas2 - 800
-vagonas3 = vagonas(3, 600, 3000)
-train += vagonas2
-train += vagonas3
-print(vagonas2)
-print(vagonas2.krovinio_mase)
-print(train)
-train -= vagonas2
-print(train)
-train -= vagonas3
-print(train)
-print(vagonas2)
-#vagonai +=
-#rz = train + vagonas2
-#print(rz, repr(vagonas2.vagono_ID))
-#print(train)
-#print([train, train])
-'''
 traukiniai = {}
 
 '''Metodas tikrina ar ivesta reiksme yra teigiamas skaicius, jei ne paprasoma
