@@ -1,0 +1,13 @@
+Programa turi meniu kuriame galima pasirinki variantus.
+Sukiuriant traukiny jisai irasomas i dict traukiniai kur jo ID yra raktas.
+Pridedant vagona vagonas irasomas dict traukiniai[x].vagonai kur jo ID yra raktas naudojant __add__.
+Atemant vagona vagonas istrynamas is dict traukiniai.vagonai naudojant __sub__.
+Pridedant kroviny prie vagono traukinio ir vagono svoris keiciasi naudojant __add__.
+Atemant krovini is vagono keiciasi traukinio ir vagono svoris __add__.
+Gaunant traukinio reprezentacija kvieciamas __repr__ kuris kviecia __str__ kuris grazina objekto atributu reprezentacija.
+Isrusiuoti traukinius visi traukiniai isrusiuojami pagal ID ir ispausdinamas rezultatas.
+Issaugant traukini JSON formate jisai yra irasomas i ta faila.
+Ikelent duomenis is JSON duomenys nuskaitomi ir sukuriami traukinio objektai su vagonais ir kroviniais.
+Tikrinti ar traukinys naudojamas tai tikrinama ar traukinys turi vagonu ar ne naudojant __len__.
+Trinti traukiny, traukinio objektas istrynamas is dict traukiniai.
+Iseiti is programos, iseinama is programos.
