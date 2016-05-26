@@ -35,6 +35,15 @@ class traukinys:
         self._traukinio_svoris = value
 
     def __init__(self, traukinio_ID, lmase, lmax_mase, t_mase=None):
+        '''
+        >>> trauk = traukinys(11,120,250)
+        >>> print(trauk.traukinio_ID)
+        11
+        >>> print(len(trauk))
+        0
+        >>> print(bool(trauk))
+        False
+        '''
         self.traukinio_ID = traukinio_ID
         self.lok = lokomotyvas(lmase, lmax_mase)
         self.vagonai = {}
@@ -81,3 +90,7 @@ class traukinys:
 
     def __len__(self):
         return len(self.vagonai)
+
+    if __name__ == "__Traukinys__":
+        import doctest
+        doctest.testmod()

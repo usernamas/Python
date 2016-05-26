@@ -13,6 +13,10 @@ ivesti dar karta'''
 
 
 def arTinka():
+    '''
+    >>> 1
+    1
+    '''
     x = -1
     while(x <= 0):
         try:
@@ -43,6 +47,10 @@ def sorting():
 
     return sort2
 
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
 while(True):
     print(
@@ -317,6 +325,9 @@ while(True):
             continue
         except(TypeError):
             print("Error wrong input")
+            continue
+        except:
+            print("Error handled")
             continue
         for k, v in train.items():
             traukiniai[int(k)] = traukinys(v['traukinio_ID'],
